@@ -1,42 +1,31 @@
-// App.js
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import Login from './login';
-import Signup from './signup';
-import ProductsPage from './ProductsPage';
-import Navbar from './Navbar'; // Import the new Navbar component
-import './common.css';
-import { useUserContext } from './UserContext';
-
+// Existing imports...
+import { Route, Routes, Navigate } from 'react-router-dom';
+import Login from './Login'; // Correct the import path
+import Signup from './Signup'; // Correct the import path
+import ProductPage from './ProductPage'; // Correct the import path
+// Existing code...
 
 function App() {
-  const { user } = useUserContext();
-  
+  // Existing code...
 
   return (
     <Router>
       <div>
-
         <Navbar />
-        <ProductsPage/>
-        
-
         <Routes>
-          {/* Define routes using the "element" prop instead of "component" */}
+          {/* Existing routes */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           {user ? (
             <>
-              <Route path="/products" element={<ProductsPage />} />
-              <Route index element={<ProductsPage />} /> {/* Use "index" to match the homepage */}
+              <Route path="/products" element={<ProductPage />} />
+              <Route index element={<ProductPage />} /> {/* Use "index" to match the homepage */}
             </>
           ) : (
             <Route element={<Navigate to="/login" />} />
           )}
         </Routes>
       </div>
-
-      
     </Router>
   );
 }
