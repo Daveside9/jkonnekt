@@ -1,0 +1,13 @@
+/* styles.module.css */
+
+@font-face {
+    font-family: 'CustomFont'; /* Name your font */
+    src: url('../path/to/fonts/font.woff2') format('woff2');
+    /* You may need to adjust the path based on your project structure */
+  }
+  
+  /* Use the custom font */
+  .custom-font {
+    font-family: 'CustomFont', sans-serif;
+  }
+  
