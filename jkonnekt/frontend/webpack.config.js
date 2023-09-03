@@ -1,18 +1,31 @@
-module.exports = {
-  // ... other webpack configuration settings
+const path = require("path");
+const webpack = require("webpack");
 
+module.exports = {
+  entry: "./src/index.js",
+  output: {
+    path: path.resolve(__dirname, ".static/frontend"),
+    filename: "[name].js",
+  }, 
   module: {
     rules: [
       {
-        test: /\.js$/, // Match JavaScript files
+        test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader', // Use babel-loader to transpile
+          loader: 'babel-loader',
         },
       },
-      // ... other rules
     ],
   },
-
-  // ... other webpack configuration settings
+  optimization: {
+    minimize: true,
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify("production"),
+      }
+    })
+  ]
 };
