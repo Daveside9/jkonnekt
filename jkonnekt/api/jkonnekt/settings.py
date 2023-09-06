@@ -21,19 +21,21 @@ SECRET_KEY = 'django-insecure-y7pn_k=!zi+5kv8+l7n5^rc!2e$vuzzg81skrt1_$9ox&&np=(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'jkonnekt247.wordpress.com', 'localhost']
+ALLOWED_HOSTS = []
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+       'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'api',
+    'api.apps.ApiConfig',
     'rest_framework',
+    'frontend.apps.FrontendConfig',
+    'spotify.apps.SpotifyConfig'
    
 ]
 
